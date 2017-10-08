@@ -1,6 +1,6 @@
 
-\# Depth First Search
-\# Prints the path exactly the way it traverses
+# Depth First Search
+# Prints the path exactly the way it traverses
 
 import collections
 
