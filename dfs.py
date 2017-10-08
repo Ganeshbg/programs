@@ -1,4 +1,7 @@
 
+\# Depth First Search
+\# Prints the path exactly the way it traverses
+
 import collections
 
 graph = {'A': set(['B', 'C']),
