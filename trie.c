@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-
+#include<string.h>
 
 struct trienode
 {
@@ -24,7 +24,7 @@ struct trienode* getnode(void)
 void search(struct trienode *root, char *str)
 {
 	struct trienode *temp=root;
-	for(int i=0;i<sizeof(str);i++)
+	for(int i=0;i<strlen(str);i++)
 	{
 		int index=str[i]-'a';
 		if(temp->child[index]==NULL)
@@ -36,7 +36,11 @@ void search(struct trienode *root, char *str)
 	}
 	if(temp!=NULL && temp->wordend==true)
 	{
-		printf("Yeah Found");
+		printf("Yeah Found\n");
+	}
+	else
+	{
+		printf("NOT Found\n");
 	}
 	return;
 
@@ -44,7 +48,7 @@ void search(struct trienode *root, char *str)
 void insert(struct trienode *root, char *str)
 {
 	struct trienode *temp=root;
-	for(int j=0;j<sizeof(str);j++)
+	for(int j=0;j<strlen(str);j++)
 	{
 		int index=str[j]-'a';
 		if(temp->child[index]==NULL)
