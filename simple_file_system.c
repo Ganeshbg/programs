@@ -23,9 +23,11 @@ struct Root
 void touch(struct Root *start, char *dir_name, char *file_name, char *contents)
 {
     struct File *file = (struct File *)malloc(sizeof(struct File));
+    file->data=contents;
+    file->c=file_name;
     for(int i=0;i<10;i++)
     {
-        if(start->dir[i]->c==dir_name)
+        if(start->dir[i] != NULL && start->dir[i]->c==dir_name)
         {
             for(int j=0;j<10;j++)
             {
@@ -35,12 +37,15 @@ void touch(struct Root *start, char *dir_name, char *file_name, char *contents)
                 }
                 else
                 {
-                    start->dir[i]->file[j]->data=contents;
-                    start->dir[i]->file[j]->c=file_name;
+                    start->dir[i]->file[j]=file;
                     break;
                 }
             }
         }
+	else
+	{
+		continue;
+	}
     }
 }
 void mkdir(struct Root *start, char *name)
@@ -66,7 +71,7 @@ void printDir(struct Root *start)
     for(int i=0;i<10;i++)
     {
         if(start->dir[i]!=NULL)
-            printf("%s\n",start->dir[i]->c);
+            printf("Directory name:%s\n",start->dir[i]->c);
         else
         {
             break;
@@ -92,7 +97,7 @@ void cat(struct Root *start,char *dir_name, char *file_name)
                 else
                 {
                     char *con = (char *)start->dir[i]->file[j]->data;
-                    printf("%s",con);
+                    printf("%s\n",con);
                     break;
                 }
             }
