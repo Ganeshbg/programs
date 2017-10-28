@@ -1,9 +1,17 @@
 
 
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
 #include<stdio.h>
 struct Animal
 {
-    void (*name)(struct Animal *);
+    void (*name)();
     char c;
 };
 struct Dog
@@ -19,19 +27,19 @@ struct Cat
     struct Animal *cat;
 };
 
-void bow(struct Animal *doggy)
+void bow()
 {
-    printf("Dog barks, bow bow: %c",doggy->c);
+    printf("Dog barks, bow bow\n");
 }
 
-void mew(struct Animal *catty)
+void mew()
 {
-    printf("Cat says mew mew: %c", catty->c);
+    printf("Cat says mew mew");
 }
 
 void sound(struct Animal *animal)
 {
-    animal->name(animal);
+    animal->name();
 }
 int main()
 {
@@ -46,5 +54,7 @@ int main()
     sound(c->cat);
     return 0;
 }
+
+
 
 
