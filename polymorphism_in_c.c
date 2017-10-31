@@ -40,8 +40,8 @@ int main()
     struct Animal ani_dog, ani_cat;
     ani_dog.c="Doggy";
     ani_cat.c="Catty";
-    ani_dog.name=&bow;
-    ani_cat.name=&mew;
+    //ani_dog.name=&bow;
+    //ani_cat.name=&mew;
     dog_main.dog=&ani_dog;
     cat_main.cat=&ani_cat;
     dog_main.dog->name=&bow;
